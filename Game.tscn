@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://sp64y2eqbd63"]
+[gd_scene load_steps=18 format=3 uid="uid://sp64y2eqbd63"]
 
 [ext_resource type="Script" path="res://Brick/Brick_Container.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://cfb204qt38vvo" path="res://Paddle/Paddle.tscn" id="2"]
@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://cb6abwxodebx1" path="res://UI/HUD.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://d03l3yccdo8fa" path="res://UI/Instructions.tscn" id="8"]
 [ext_resource type="Script" path="res://Effects/Camera.gd" id="9"]
+[ext_resource type="AudioStream" uid="uid://538pl0dysf3" path="res://Assets/Opus_27_No_2_Moonlight_Sonata_1st_movement.mp3" id="10_ahjaf"]
+[ext_resource type="AudioStream" uid="uid://ck6gndq882qxu" path="res://Assets/wall.wav" id="11_ykfsv"]
+[ext_resource type="AudioStream" uid="uid://8mhyfv767baq" path="res://Assets/paddle.wav" id="12_2l04q"]
+[ext_resource type="AudioStream" uid="uid://bk4acmppb1ax1" path="res://Assets/brick.wav" id="13_83bvt"]
+[ext_resource type="AudioStream" uid="uid://botcelqcqhtf8" path="res://Assets/died.wav" id="14_q5age"]
+[ext_resource type="Script" path="res://Ball/Comet_container.gd" id="15_tn8jl"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(200, 1000)
@@ -74,3 +80,23 @@ visible = false
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("9")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ahjaf")
+autoplay = true
+
+[node name="wall_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ykfsv")
+
+[node name="paddle_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_2l04q")
+
+[node name="brick_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_83bvt")
+
+[node name="die_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_q5age")
+volume_db = -28.414
+
+[node name="Comet_container" type="Node2D" parent="."]
+script = ExtResource("15_tn8jl")
